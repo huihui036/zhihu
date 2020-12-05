@@ -1,18 +1,33 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
+  <p>{{count}}</p>
+  <p>{{dubble}}</p>
+  <button @click="increase">点击加1</button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { ref,computed  } from 'vue';
+//import HelloWorld from './components/HelloWorld.vue';
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
+export default {
+  name: 'App', 
+  setup() {
+    const count = ref(0)
+
+    const dubble =computed(()=>{
+    return  count.value*3
+    })
+    const increase=()=>{
+
+    count.value++;
+
+    }
+    return {
+      count,increase,dubble
+    }
   }
-});
+};
 </script>
 
 <style>
