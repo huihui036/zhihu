@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted, reactive, toRefs } from 'vue'
+import { ref, onMounted, onUnmounted, reactive, } from 'vue'
 function useMousePoisition() {
 
   const mouseData = reactive({
@@ -16,6 +16,7 @@ function useMousePoisition() {
     x.value = e.pageX
     y.value = e.pageY
   }
+
   onMounted(() => {
     document.addEventListener("click", mouseData.updataAb)
     document.addEventListener("click", ClickNumber)
