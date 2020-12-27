@@ -1,26 +1,29 @@
 <template>
   <div class="container">
     <div class="row">
-      <div v-for="colunm in list"
-           :key="colunm.id"
-           class="col-4 my-3">
-        <div class="card d-flex position-relative"
-             style="width: 18rem;">
-          <img :src="colunm.avater"
-               :alt="colunm.title"
-               class="flex-shrink-0 me-3">
-          <div class="card-body">
-
-            <h5 class="card-title">{{colunm.title}}</h5>
-            <p class="card-text">{{colunm.description}}</p>
-            <a href="#"
-               class="btn btn-primary">进入专栏</a>
-          </div>
-        </div>
-
-      </div>
+        <a-card hoverable style="width: 300px" 
+           v-for="colunm in list"
+           :key="colunm.id">
+    <template #cover>
+      <img
+        alt="example"
+        src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+      />
+    </template>
+    <template class="ant-card-actions" #actions>
+      <setting-outlined key="setting" />
+      <edit-outlined key="edit" />
+      <ellipsis-outlined key="ellipsis" />
+    </template>
+    <a-card-meta title="Card title" :description="colunm.title">
+      <template #avatar>
+        <a-avatar :src="colunm.avater" />
+      </template>
+    </a-card-meta>
+  </a-card>
 
     </div>
+
 
   </div>
 

@@ -1,62 +1,50 @@
 <template>
-  <div>
-    <Header></Header>
-    <columen-list :list="list"></columen-list>
+  <div id="app">
+  <div id="components-layout-demo-basic">
+    <a-layout>
+      <a-layout-header>
+        <Header></Header>
+      </a-layout-header>
+      <a-layout-content>
+        <colum-list :list='list'></colum-list>
+      </a-layout-content>
+      <a-layout-footer>Footer</a-layout-footer>
+    </a-layout>
+
+  </div>
   </div>
 </template>
 
+<script lang='ts'>
+import Header  from './components/header.vue'
+import ColumList ,{ColunmPros}  from './components/ColumnList.vue'
 
-
-
-<script lang="ts">
-import { defineComponent } from "vue";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-
-import ColumenList, { ColunmPros } from "./components/ColumnList.vue";
-import Header from "./components/header.vue";
-const listData: ColunmPros[] = [
-  {
-    id: 1,
-    title: "标题1",
-    avater: "https://cn.vuejs.org/images/logo.png",
-    description:
-      "我们为新版的 vue-cli 准备了相应的 Element 插件，你可以用它们快速地搭建一个基于 Element 的项目。"
-  },
-  {
-    id: 1,
-    title: "标题1",
-    avater: "https://cn.vuejs.org/images/logo.png",
-    description:
-      "我们为新版的 vue-cli 准备了相应的 Element 插件，你可以用它们快速地搭建一个基于 Element 的项目。"
-  },
-  {
-    id: 1,
-    title: "标题1",
-    avater: "https://cn.vuejs.org/images/logo.png",
-    description:
-      "我们为新版的 vue-cli 准备了相应的 Element 插件，你可以用它们快速地搭建一个基于 Element 的项目。"
-  },
-  {
-    id: 1,
-    title: "标题1",
-    avater: "https://cn.vuejs.org/images/logo.png",
-    description:
-      "我们为新版的 vue-cli 准备了相应的 Element 插件，你可以用它们快速地搭建一个基于 Element 的项目。"
-  }
-];
-export default defineComponent({
-  name: "App",
+const testData: ColunmPros[] = [
+      { 
+        id: 1,
+        title: "string",
+        avater: "string",
+        description: "string"
+      },
+       { 
+        id: 2,
+        title: "string",
+        avater: "string",
+        description: "string"
+      },
+]
+export default {
+  name: 'App',
   components: {
-    ColumenList,
-    Header
+    Header,
+    ColumList
   },
   setup() {
     return {
-      list: listData
-    };
+      list:testData
+    }
   }
-});
+}
 </script>
 
 <style>
@@ -64,5 +52,15 @@ export default defineComponent({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+#components-layout-demo-basic {
+  text-align: center;
+}
+#components-layout-demo-basic .ant-layout-header,
+#components-layout-demo-basic .ant-layout-footer {
+  background: #7dbcea;
+  color: #fff;
 }
 </style>

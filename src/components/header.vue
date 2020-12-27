@@ -1,24 +1,30 @@
 <template>
   <div class=" container">
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand">Navbar</a>
-        <div class="d-flex">
-          <button type="button"
-                  class="btn btn-primary">Primary</button>
-          <button type="button"
-                  class="btn btn-secondary mb-3">Secondary</button>
-        </div>
-      </div>
-    </nav>
+  <a-row >
+    <a-col :span="4">
+     logo
+    </a-col>
+    <a-col :span="16">
+   管理系统
+    </a-col>
+    <a-col :span="4">
+     <is-longin></is-longin>
+    </a-col>
+  </a-row>
+
   </div>
 </template>
 
 <script  lang='ts'>
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
+import IsLongin from "./loginType.vue"
 export default defineComponent({
   name: "Header",
-  props: {}
+  components: {
+    IsLongin
+  },
+  props: {},
+ 
 });
 </script>
 
